@@ -1,11 +1,13 @@
 import Index from "./pages/Index";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   return (
-    <div>
-      <Index />
-      <ToastContainer />
-    </div>
+    <>
+      <div>
+        <Index />
+        <ToastContainer />
+      </div>
+    </>
   );
 }
