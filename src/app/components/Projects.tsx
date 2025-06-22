@@ -39,7 +39,7 @@ export const Projects = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.title}
               className="group bg-gradient-to-br from-black/40 to-purple-900/20 rounded-2xl overflow-hidden backdrop-blur-sm border border-cyan-400/30 hover:border-magenta-400/40 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20"

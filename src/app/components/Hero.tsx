@@ -5,15 +5,12 @@ export const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
-  
-  const texts = [
-    "Hi, I'm Vibhor Meshram",
-    "A Full Stack Developer"
-  ];
 
   useEffect(() => {
+    const texts = ["Hi, I'm Vibhor Meshram", "A Full Stack Developer"];
+
     const currentText = texts[currentTextIndex];
-    
+
     if (isTyping) {
       if (displayedText.length < currentText.length) {
         const timeout = setTimeout(() => {
@@ -39,10 +36,13 @@ export const Hero = () => {
         setIsTyping(true);
       }
     }
-  }, [displayedText, isTyping, currentTextIndex, texts]);
+  }, [displayedText, isTyping, currentTextIndex]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -58,10 +58,11 @@ export const Hero = () => {
               <span className="animate-pulse">|</span>
             </span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Crafting modern apps with React, Node.js, and React Native — from frontend to backend.
-            Focused on performance, clean code, and cloud deployment that scales.
+            Crafting modern apps with React, Node.js, and React Native — from
+            frontend to backend. Focused on performance, clean code, and cloud
+            deployment that scales.
           </p>
 
           <div className="flex justify-center space-x-6 mb-12">
@@ -69,7 +70,7 @@ export const Hero = () => {
               href="#contact"
               className="text-xl bg-gradient-to-r from-cyan-600 to-magenta-600 hover:from-cyan-700 hover:to-magenta-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-400/25 hover:shadow-magenta-400/25"
             >
-              Let's Connect
+              Let&apos;s Connect
             </a>
             <a
               href="#projects"

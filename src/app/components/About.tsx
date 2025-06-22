@@ -14,8 +14,8 @@ export const About = () => {
         <div className="grid md:grid-cols-2 gap-20 items-center">
           <div className="space-y-6">
             <p className="text-xl text-gray-300 leading-relaxed">
-              I'm a full-stack developer focused on building high-performance, 
-              scalable applications. Whether it's architecting backend systems, 
+              I&apos;m a full-stack developer focused on building high-performance, 
+              scalable applications. Whether it&apos;s architecting backend systems, 
               optimizing frontend interactions, or deploying to cloud 
               infrastructure — I thrive on solving complex problems with clean, 
               modern tech.

@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -35,11 +35,11 @@ export const Contact = () => {
       <div className="max-w-370 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Let's Work Together
+            Let&apos;s Work Together
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-magenta-400 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let's discuss your next project
+            Ready to bring your ideas to life? Let&apos;s discuss your next project
             and create something amazing together.
           </p>
         </div>
