@@ -82,19 +82,19 @@ export const Hero = () => {
 
           <div className="flex justify-center space-x-6">
             <a
-              href="#"
+              href="https://github.com/meshramvibhor"
               className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110"
             >
               <Github size={34} />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/vibhor-meshram2748/"
               className="text-gray-400 hover:text-magenta-400 transition-colors duration-300 transform hover:scale-110"
             >
               <Linkedin size={34} />
             </a>
             <a
-              href="#"
+              href="mailto:vibhor.meshram.work@gmail.com"
               className="text-gray-400 hover:text-purple-400 transition-colors duration-300 transform hover:scale-110"
             >
               <Mail size={34} />

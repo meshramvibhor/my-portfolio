@@ -2,7 +2,7 @@ import { Code, Palette, Zap } from "lucide-react";
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="py-18 relative">
       <div className="max-w-370 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">

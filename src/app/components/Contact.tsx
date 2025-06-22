@@ -1,5 +1,5 @@
 import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 export const Contact = () => {
@@ -8,6 +8,13 @@ export const Contact = () => {
     email: "",
     message: "",
   });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    setIsMobile(isMobile);
+    console.log("Mobile:", isMobile);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -39,8 +46,8 @@ export const Contact = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-magenta-400 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let&apos;s discuss your next project
-            and create something amazing together.
+            Ready to bring your ideas to life? Let&apos;s discuss your next
+            project and create something amazing together.
           </p>
         </div>
 
@@ -58,7 +65,9 @@ export const Contact = () => {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white">vibhor.meshram.work@gmail.com</p>
+                    <p className="text-white">
+                      {isMobile?"vibhor.meshram.work @gmail.com":"vibhor.meshram.work@gmail.com"}
+                    </p>
                   </div>
                 </div>
 
