@@ -3,28 +3,28 @@ export const Skills = () => {
     {
       title: "Frontend",
       skills: [
-        { name: "ReactJs/NextJs", color: "from-cyan-400 to-blue-400" },
-        { name: "React Native", color: "from-magenta-400 to-purple-400" },
-        { name: "JavaScript/TypeScript", color: "from-purple-400 to-cyan-400" },
-        { name: "HTML/CSS", color: "from-cyan-500 to-magenta-500" },
+        { name: "React.js / React Native", color: "from-cyan-400 to-blue-400" },
+        { name: "TypeScript / JavaScript", color: "from-magenta-400 to-purple-400" },
+        { name: "Redux Toolkit / Context API", color: "from-purple-400 to-cyan-400" },
+        { name: "HTML5 / CSS3", color: "from-cyan-500 to-magenta-500" },
       ]
     },
     {
       title: "Backend",
       skills: [
-        { name: "Node.js", color: "from-magenta-500 to-purple-500" },
-        { name: "Express.js", color: "from-slate-400 to-cyan-400" },
-        { name: "GraphQL", color: "from-purple-400 to-magenta-400" },
-        { name: "MongoDB/MySQL", color: "from-cyan-600 to-purple-600" },
+        { name: "Java 8+ / Spring Boot", color: "from-magenta-500 to-purple-500" },
+        { name: "Spring Security / JWT", color: "from-slate-400 to-cyan-400" },
+        { name: "Hibernate / JPA", color: "from-purple-400 to-magenta-400" },
+        { name: "Apache Kafka / REST APIs", color: "from-cyan-600 to-purple-600" },
       ]
     },
     {
       title: "Cloud & Tools",
       skills: [
-        { name: "AWS", color: "from-cyan-400 to-purple-600" },
-        { name: "Git", color: "from-magenta-400 to-cyan-400" },
-        { name: "Docker", color: "from-purple-500 to-cyan-500" },
-        { name: "CI/CD", color: "from-cyan-500 to-magenta-500" },
+        { name: "AWS (IoT Core, Lambda, EC2)", color: "from-cyan-400 to-purple-600" },
+        { name: "Docker / CI/CD", color: "from-magenta-400 to-cyan-400" },
+        { name: "PostgreSQL / MongoDB", color: "from-purple-500 to-cyan-500" },
+        { name: "Git / Postman / Agile", color: "from-cyan-500 to-magenta-500" },
       ]
     }
   ];

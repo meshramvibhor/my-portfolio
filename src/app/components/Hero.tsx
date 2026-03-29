@@ -7,7 +7,7 @@ export const Hero = () => {
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    const texts = ["Hi, I'm Vibhor Meshram", "A Full Stack Developer"];
+    const texts = ["Hi, I'm Vibhor Meshram", "A Java Full Stack Developer"];
 
     const currentText = texts[currentTextIndex];
 
@@ -60,9 +60,9 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Crafting modern apps with React, Node.js, and React Native — from
-            frontend to backend. Focused on performance, clean code, and cloud
-            deployment that scales.
+            Building production-grade systems with Java, Spring Boot, and React — from
+            microservices to mobile. Focused on clean architecture, secure APIs, and
+            cloud deployments that scale.
           </p>
 
           <div className="flex justify-center space-x-6 mb-12">

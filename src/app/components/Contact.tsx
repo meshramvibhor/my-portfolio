@@ -87,7 +87,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Location</p>
-                    <p className="text-white">Pune, Mahrashtra, India</p>
+                    <p className="text-white">Nagpur, Maharashtra, India</p>
                   </div>
                 </div>
               </div>
@@ -165,7 +165,7 @@ export const Contact = () => {
         </div>
 
         <div className="text-center mt-16 pt-8 border-t border-cyan-400/20">
-          <p className="text-gray-400">© 2025 Vibhor Meshram.</p>
+          <p className="text-gray-400">© 2026 Vibhor Meshram.</p>
         </div>
       </div>
     </section>

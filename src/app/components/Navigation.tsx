@@ -17,11 +17,11 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="text-cyan-400 font-bold text-3xl glow-text">
-            Portfolio
+            Vibhor Meshram
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 items-center">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -31,6 +31,13 @@ export const Navigation = () => {
                 {item.name}
               </a>
             ))}
+            <a
+              href="/Vibhor_Meshram_Resume.pdf"
+              download
+              className="text-sm bg-gradient-to-r from-cyan-600 to-magenta-600 hover:from-cyan-700 hover:to-magenta-700 text-white px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-400/25"
+            >
+              Download CV
+            </a>
           </div>
 
           {/* Mobile Navigation Button */}
@@ -58,6 +65,14 @@ export const Navigation = () => {
                   {item.name}
                 </a>
               ))}
+              <a
+                href="/Vibhor_Meshram_Resume.pdf"
+                download
+                className="block px-3 py-2 text-cyan-400 font-semibold hover:text-magenta-400 transition-colors duration-300"
+                onClick={() => setIsOpen(false)}
+              >
+                Download CV
+              </a>
             </div>
           </div>
         )}

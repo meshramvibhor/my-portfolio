@@ -1,30 +1,22 @@
-import { ExternalLink, Github } from "lucide-react";
-
 export const Projects = () => {
   const projects = [
     {
-      title: "Expense Manager Application",
-      description: "A full-stack application using React, Node.js, GraphQL, and MySQL with secure auth, role-based access, and interactive charts. Designed scalable APIs and optimized database queries",
-      technologies: ["ReactJs", "Node.js", "MongoDB", "ExpressJs", "GraphQL"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-      github: "#",
-      live: "#"
+      title: "DMS – Dymond Management System",
+      description: "SaaS IoT platform for managing vending machines, car washes, and laundromats across US and Canada. Built microservices for device lifecycle, real-time monitoring, and alerting — supporting 1,200+ active devices. Implemented Spring Security with ACL for role-based merchant access.",
+      technologies: ["Spring Boot", "Microservices", "AWS IoT Core", "Docker", "PostgreSQL", "React.js", "JWT"],
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop",
     },
     {
-      title: "News Application",
-      description: "A real-time news application using React.js, Node.js, and Express.js with personalized topic filtering, auto-refresh, and a user-friendly interface for tailored content delivery.",
-      technologies: ["ReactJs", "NodeJs", "Express", "3rd Party Api"],
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
-      github: "#",
-      live: "#"
+      title: "WeVend – Unattended Vending Platform",
+      description: "Full-stack web and Android application for unattended vending operations deployed across multiple US and Canada locations. Built Spring Boot backend with PostgreSQL for inventory and device health, and delivered end-to-end React.js and React Native UI screens with real-time payment and device sync.",
+      technologies: ["Spring Boot", "React.js", "React Native", "PostgreSQL", "AWS", "REST APIs"],
+      image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&h=300&fit=crop",
     },
     {
-      title: "Analytics Dashboard",
-      description: "Real-time analytics dashboard for business intelligence with interactive charts, data visualization, and automated reporting capabilities.",
-      technologies: ["React", "D3.js", "Node.js", "AWS", "Redis"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-      github: "#",
-      live: "#"
+      title: "eGift Solutions – Gift Card App",
+      description: "Clover Android app for gift card lifecycle management — activation, redemption, balance top-up, and refunds — adopted by 300+ merchants across 600+ devices in US and Canada. Added barcode scanning for fast card handling and a reporting dashboard with transaction charts.",
+      technologies: ["React Native", "Java", "Clover SDK", "Android", "Barcode Scanning"],
+      image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=400&h=300&fit=crop",
     }
   ];
 
@@ -52,20 +44,7 @@ export const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-purple-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
-                <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.github}
-                    className="p-2 bg-black/50 rounded-full text-white hover:bg-cyan-600/70 transition-colors hover:shadow-lg hover:shadow-cyan-400/30"
-                  >
-                    <Github size={18} />
-                  </a>
-                  <a
-                    href={project.live}
-                    className="p-2 bg-black/50 rounded-full text-white hover:bg-magenta-600/70 transition-colors hover:shadow-lg hover:shadow-magenta-400/30"
-                  >
-                    <ExternalLink size={18} />
-                  </a>
-                </div>
+
               </div>
 
               <div className="p-6">

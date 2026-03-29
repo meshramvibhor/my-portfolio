@@ -14,15 +14,16 @@ export const About = () => {
         <div className="grid md:grid-cols-2 gap-20 items-center">
           <div className="space-y-6">
             <p className="text-xl text-gray-300 leading-relaxed">
-              I&apos;m a full-stack developer focused on building high-performance, 
-              scalable applications. Whether it&apos;s architecting backend systems, 
-              optimizing frontend interactions, or deploying to cloud 
-              infrastructure — I thrive on solving complex problems with clean, 
-              modern tech.
+              I&apos;m a Java Full Stack Developer with 4+ years of experience building
+              production-grade web and Android applications. I&apos;ve worked across IoT,
+              SaaS, and fintech domains — designing microservices, securing APIs, and
+              shipping real features used by real merchants across the US and Canada.
             </p>
             
             <p className="text-xl text-gray-300 leading-relaxed">
-              With hands-on experience in React, Node.js, MongoDB, AWS, and React Native, I bring end-to-end solutions to life that are built to grow and built to last.
+              My core stack is Java, Spring Boot, React, and AWS. I care about writing
+              maintainable code, making systems observable, and solving problems that
+              actually matter to the business — not just to the codebase.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
@@ -59,44 +60,43 @@ export const About = () => {
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-cyan-400 rounded-full mr-3 shadow-sm shadow-cyan-400"></span>
-                    <span className="text-gray-300">3+ years of development experience</span>
+                    <span className="text-gray-300">4+ years of full stack development experience</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-purple-400 rounded-full mr-3 shadow-sm shadow-purple-400"></span>
-                    <span className="text-gray-300">Cloud deployment & DevOps</span>
+                    <span className="text-gray-300">Java, Spring Boot & Microservices architecture</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-cyan-400 rounded-full mr-3 shadow-sm shadow-cyan-400"></span>
-                    <span className="text-gray-300">Full-stack web & mobile development</span>
+                    <span className="text-gray-300">React.js & React Native — web and Android</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-purple-400 rounded-full mr-3 shadow-sm shadow-purple-400"></span>
-                    <span className="text-gray-300">Clover POS & gift card integration</span>
+                    <span className="text-gray-300">1,200+ IoT devices managed across US & Canada</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-cyan-400 rounded-full mr-3 shadow-sm shadow-cyan-400"></span>
-                    <span className="text-gray-300">Scalable and secure backend API design</span>
+                    <span className="text-gray-300">JWT & Spring Security — role-based access control</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-purple-400 rounded-full mr-3 shadow-sm shadow-purple-400"></span>
-                    <span className="text-gray-300">CI/CD with Docker & Jenkins</span>
+                    <span className="text-gray-300">CI/CD with Docker & AWS deployments</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-cyan-400 rounded-full mr-3 shadow-sm shadow-cyan-400"></span>
-                    <span className="text-gray-300">AWS services: EC2, S3, Lambda, SQS, IoT Core</span>
+                    <span className="text-gray-300">AWS: EC2, Lambda, IoT Core, PostgreSQL</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-purple-400 rounded-full mr-3 shadow-sm shadow-purple-400"></span>
-                    <span className="text-gray-300">GraphQL & REST API development</span>
+                    <span className="text-gray-300">REST APIs, JPA/Hibernate, Apache Kafka</span>
                   </div>
-          
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-purple-400 rounded-full mr-3 shadow-sm shadow-purple-400"></span>
-                    <span className="text-gray-300">Test-driven development with Jest</span>
+                    <span className="text-gray-300">JUnit testing & Agile development</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-cyan-500 rounded-full mr-3 shadow-sm shadow-cyan-500"></span>
-                    <span className="text-gray-300">Agile development methodologies</span>
+                    <span className="text-gray-300">Open to relocation across India</span>
                   </div>
                 </div>
               </div>
