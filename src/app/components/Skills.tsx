@@ -16,15 +16,17 @@ export const Skills = () => {
         { name: "Spring Security / JWT", color: "from-slate-400 to-cyan-400" },
         { name: "Hibernate / JPA", color: "from-purple-400 to-magenta-400" },
         { name: "Apache Kafka / REST APIs", color: "from-cyan-600 to-purple-600" },
+        { name: "Microservices / JUnit", color: "from-magenta-600 to-cyan-600" },
       ]
     },
     {
       title: "Cloud & Tools",
       skills: [
-        { name: "AWS (IoT Core, Lambda, EC2)", color: "from-cyan-400 to-purple-600" },
-        { name: "Docker / CI/CD", color: "from-magenta-400 to-cyan-400" },
-        { name: "PostgreSQL / MongoDB", color: "from-purple-500 to-cyan-500" },
-        { name: "Git / Postman / Agile", color: "from-cyan-500 to-magenta-500" },
+        { name: "AWS (ECS, IoT Core, Lambda, EC2)", color: "from-cyan-400 to-purple-600" },
+        { name: "Docker / CI/CD / NGINX", color: "from-magenta-400 to-cyan-400" },
+        { name: "PostgreSQL / MySQL / MongoDB", color: "from-purple-500 to-cyan-500" },
+        { name: "Git / Postman / Swagger", color: "from-cyan-500 to-magenta-500" },
+        { name: "Agile / Scrum / TDD", color: "from-purple-600 to-magenta-600" },
       ]
     }
   ];

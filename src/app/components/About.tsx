@@ -84,7 +84,7 @@ export const About = () => {
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-cyan-400 rounded-full mr-3 shadow-sm shadow-cyan-400"></span>
-                    <span className="text-gray-300">AWS: EC2, Lambda, IoT Core, PostgreSQL</span>
+                    <span className="text-gray-300">AWS: ECS, EC2, Lambda, IoT Core, CloudWatch</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-purple-400 rounded-full mr-3 shadow-sm shadow-purple-400"></span>

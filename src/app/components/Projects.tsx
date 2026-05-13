@@ -2,8 +2,8 @@ export const Projects = () => {
   const projects = [
     {
       title: "DMS – Dymond Management System",
-      description: "SaaS IoT platform for managing vending machines, car washes, and laundromats across US and Canada. Built microservices for device lifecycle, real-time monitoring, and alerting — supporting 1,200+ active devices. Implemented Spring Security with ACL for role-based merchant access.",
-      technologies: ["Spring Boot", "Microservices", "AWS IoT Core", "Docker", "PostgreSQL", "React.js", "JWT"],
+      description: "SaaS IoT platform managing vending machines, car washes, and laundromats across US and Canada — supporting 1,200+ active devices. Built 4 microservices (User, Device, Device Comm, Notification) deployed on AWS ECS. Integrated AWS IoT Core + Kafka for async device event processing, WebSockets for real-time UI updates, and Spring Security with ACL-driven RBAC across 500+ merchant accounts.",
+      technologies: ["Java 17", "Spring Boot 3", "React 18", "AWS ECS", "AWS IoT Core", "Kafka", "WebSocket", "PostgreSQL", "JWT", "Docker"],
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop",
     },
     {

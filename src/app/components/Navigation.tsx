@@ -7,8 +7,10 @@ export const Navigation = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "Education", href: "#education" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -21,12 +23,12 @@ export const Navigation = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8 items-center">
+          <div className="hidden md:flex space-x-5 items-center">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-white text-xl hover:text-magenta-400 transition-colors duration-300 hover:glow-text"
+                className="text-white text-base hover:text-magenta-400 transition-colors duration-300 hover:glow-text"
               >
                 {item.name}
               </a>
