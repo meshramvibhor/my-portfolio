@@ -1,5 +1,6 @@
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -41,69 +42,111 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-28"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-magenta-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-x-0 top-20 mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent"></div>
+        <div className="absolute left-1/2 top-24 -translate-x-1/2 h-72 w-72 rounded-full bg-cyan-400/20 blur-[110px]"></div>
+        <div className="absolute right-[14%] top-52 h-56 w-56 rounded-full bg-fuchsia-500/20 blur-[100px]"></div>
       </div>
 
-      <div className="max-w-370 mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-8xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 via-magenta-400 to-purple-400 bg-clip-text text-transparent block mt-2 glow-text">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
+        <motion.div
+          className="glass-panel holo-border pulse-border rounded-3xl p-8 md:p-12"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <p className="section-kicker mb-4">Java Full Stack Engineer</p>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+            <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-fuchsia-300 bg-clip-text text-transparent block">
               {displayedText}
-              <span className="animate-pulse">|</span>
+              <span className="animate-pulse text-cyan-200">|</span>
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Building production-grade systems with Java, Spring Boot, and React — from
-            microservices to mobile. Focused on clean architecture, secure APIs, and
-            cloud deployments that scale.
+          <p className="text-base md:text-xl text-slate-300 mb-10 max-w-4xl mx-auto leading-relaxed">
+            Building production-grade products with Java, Spring Boot, and React across
+            IoT, SaaS, and fintech. I design secure microservices, real-time data flows,
+            and cloud-native systems that stay reliable at scale.
           </p>
 
-          <div className="flex justify-center space-x-6 mb-12">
-            <a
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
+            <motion.a
               href="#contact"
-              className="text-xl bg-gradient-to-r from-cyan-600 to-magenta-600 hover:from-cyan-700 hover:to-magenta-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-400/25 hover:shadow-magenta-400/25"
+              className="text-sm md:text-base bg-gradient-to-r from-cyan-400 to-fuchsia-400 text-slate-950 px-7 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+              whileHover={{ scale: 1.06, y: -3 }}
+              whileTap={{ scale: 0.96 }}
             >
               Let&apos;s Connect
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="#projects"
-              className="text-xl border-2 border-cyan-400/40 text-white px-8 py-3 rounded-full font-semibold hover:bg-cyan-400/10 transition-all duration-300 hover:border-magenta-400/60 hover:shadow-lg hover:shadow-cyan-400/20"
+              className="text-sm md:text-base border border-white/20 text-slate-100 px-7 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 hover:border-cyan-300/40"
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.97 }}
             >
               View My Work
-            </a>
+            </motion.a>
           </div>
 
-          <div className="flex justify-center space-x-6">
-            <a
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto mb-10">
+            {[
+              { label: "Experience", value: "4+ years" },
+              { label: "IoT Devices", value: "1,200+" },
+              { label: "Merchant Accounts", value: "500+" },
+              { label: "APIs Delivered", value: "100+" },
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-left float-soft"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+              >
+                <p className="text-[11px] uppercase tracking-[0.16em] text-cyan-200/80">
+                  {stat.label}
+                </p>
+                <p className="text-xl font-semibold text-white mt-1">{stat.value}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="flex justify-center space-x-5">
+            <motion.a
               href="https://github.com/meshramvibhor"
-              className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110"
+              className="text-slate-400 hover:text-cyan-300 transition-all duration-300 hover:scale-110"
+              aria-label="GitHub profile"
+              whileHover={{ y: -3, scale: 1.12 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <Github size={34} />
-            </a>
-            <a
+              <Github size={30} />
+            </motion.a>
+            <motion.a
               href="https://www.linkedin.com/in/vibhor-meshram2748/"
-              className="text-gray-400 hover:text-magenta-400 transition-colors duration-300 transform hover:scale-110"
+              className="text-slate-400 hover:text-fuchsia-300 transition-all duration-300 hover:scale-110"
+              aria-label="LinkedIn profile"
+              whileHover={{ y: -3, scale: 1.12 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <Linkedin size={34} />
-            </a>
-            <a
+              <Linkedin size={30} />
+            </motion.a>
+            <motion.a
               href="mailto:vibhor.meshram.work@gmail.com"
-              className="text-gray-400 hover:text-purple-400 transition-colors duration-300 transform hover:scale-110"
+              className="text-slate-400 hover:text-indigo-300 transition-all duration-300 hover:scale-110"
+              aria-label="Email contact"
+              whileHover={{ y: -3, scale: 1.12 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <Mail size={34} />
-            </a>
+              <Mail size={30} />
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="text-cyan-400/60" size={24} />
+        <div className="mt-10 flex justify-center animate-bounce">
+          <ArrowDown className="text-cyan-300/70" size={22} />
         </div>
       </div>
     </section>

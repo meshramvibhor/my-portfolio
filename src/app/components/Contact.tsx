@@ -1,6 +1,7 @@
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,6 @@ export const Contact = () => {
   useEffect(() => {
     const isMobile = window.innerWidth <= 768;
     setIsMobile(isMobile);
-    console.log("Mobile:", isMobile);
   }, []);
 
   const handleChange = (
@@ -27,8 +27,6 @@ export const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
     setFormData({
       name: "",
       email: "",
@@ -39,21 +37,37 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="py-20 relative">
-      <div className="max-w-370 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="section-kicker mb-3">Connect</p>
+          <h2 className="section-title mb-5">
             Let&apos;s Work Together
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-magenta-400 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <div className="w-28 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent mx-auto mb-6"></div>
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let&apos;s discuss your next
             project and create something amazing together.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <div className="bg-gradient-to-br from-black/40 to-purple-900/20 p-8 rounded-2xl backdrop-blur-sm border border-cyan-400/30 hover:border-magenta-400/40 transition-all duration-300">
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45 }}
+          >
+            <motion.div
+              className="glass-panel holo-border p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+              whileHover={{ y: -6 }}
+            >
               <h3 className="text-2xl font-bold text-white mb-6">
                 Get In Touch
               </h3>
@@ -91,10 +105,17 @@ export const Contact = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="bg-gradient-to-br from-black/40 to-purple-900/20 p-8 rounded-2xl backdrop-blur-sm border border-cyan-400/30 hover:border-magenta-400/40 transition-all duration-300">
+          <motion.div
+            className="glass-panel holo-border p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45, delay: 0.06 }}
+            whileHover={{ y: -6 }}
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
@@ -109,7 +130,7 @@ export const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-black/20 border border-cyan-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-magenta-400 transition-colors hover:border-cyan-400/50"
+                  className="w-full px-4 py-3 bg-slate-950/40 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-300/50 transition-colors hover:border-cyan-300/40"
                   placeholder="Your name"
                   required
                 />
@@ -128,7 +149,7 @@ export const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-black/20 border border-cyan-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-magenta-400 transition-colors hover:border-cyan-400/50"
+                  className="w-full px-4 py-3 bg-slate-950/40 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-300/50 transition-colors hover:border-cyan-300/40"
                   placeholder="your.email@example.com"
                   required
                 />
@@ -147,21 +168,23 @@ export const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={6}
-                  className="w-full px-4 py-3 bg-black/20 border border-cyan-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-magenta-400 transition-colors resize-none hover:border-cyan-400/50"
+                  className="w-full px-4 py-3 bg-slate-950/40 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-300/50 transition-colors resize-none hover:border-cyan-300/40"
                   placeholder="Tell me about your project..."
                   required
                 ></textarea>
               </div>
 
-              <button
+              <motion.button
                 type="submit"
-                className="w-full bg-gradient-to-r from-cyan-600 to-magenta-600 hover:from-cyan-700 hover:to-magenta-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg shadow-cyan-400/25 hover:shadow-magenta-400/25"
+                className="w-full bg-gradient-to-r from-cyan-400 to-fuchsia-400 text-slate-950 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-[1.02] flex items-center justify-center space-x-2"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Send size={18} />
                 <span>Send Message</span>
-              </button>
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
         </div>
 
         <div className="text-center mt-16 pt-8 border-t border-cyan-400/20">

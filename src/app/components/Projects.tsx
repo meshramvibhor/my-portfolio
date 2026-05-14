@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 export const Projects = () => {
   const projects = [
     {
@@ -22,34 +25,50 @@ export const Projects = () => {
 
   return (
     <section id="projects" className="py-20 relative">
-      <div className="max-w-370 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="section-kicker mb-3">Builds</p>
+          <h2 className="section-title mb-5">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-magenta-400 mx-auto"></div>
-        </div>
+          <div className="w-28 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent mx-auto"></div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
+          {projects.map((project, index) => (
+            <motion.div
               key={project.title}
-              className="group bg-gradient-to-br from-black/40 to-purple-900/20 rounded-2xl overflow-hidden backdrop-blur-sm border border-cyan-400/30 hover:border-magenta-400/40 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20"
+              className="group glass-panel holo-border rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5"
+              initial={{ opacity: 0, y: 26 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.45, delay: index * 0.12 }}
+              whileHover={{ y: -8, rotateX: 2, rotateY: -2 }}
+              whileTap={{ scale: 0.99 }}
+              style={{ transformStyle: "preserve-3d" }}
             >
               <div className="relative overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-purple-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-slate-950/40 to-transparent opacity-70"></div>
                 
 
               </div>
 
               <div className="p-6">
                 <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-300 text-xm mb-4 leading-relaxed">
+                <p className="text-slate-300 text-sm mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -57,14 +76,14 @@ export const Projects = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-xs bg-gradient-to-r from-cyan-500/20 to-magenta-500/20 text-cyan-300 rounded-full border border-cyan-500/30 hover:border-magenta-500/40 transition-colors"
+                      className="px-3 py-1 text-xs bg-white/5 text-cyan-200 rounded-full border border-white/20 hover:border-cyan-300/40 transition-colors"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

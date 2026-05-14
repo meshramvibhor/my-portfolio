@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, useScroll } from "framer-motion";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
 
   const navItems = [
     { name: "Home", href: "#home" },
@@ -15,38 +17,46 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-cyan-400/30 shadow-lg shadow-cyan-400/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <div className="text-cyan-400 font-bold text-3xl glow-text">
+    <nav className="fixed top-4 w-full z-50 px-4">
+      <div className="mx-auto max-w-7xl glass-panel holo-border rounded-2xl">
+        <motion.div
+          style={{ scaleX: scrollYProgress }}
+          className="h-0.5 origin-left bg-gradient-to-r from-cyan-300 via-sky-300 to-fuchsia-300 rounded-t-2xl"
+        />
+        <div className="flex justify-between items-center py-4 px-5 lg:px-8">
+          <div className="font-semibold text-lg md:text-xl bg-gradient-to-r from-cyan-300 via-sky-200 to-fuchsia-300 bg-clip-text text-transparent">
             Vibhor Meshram
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-5 items-center">
+          <div className="hidden md:flex space-x-4 items-center">
             {navItems.map((item) => (
-              <a
+              <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-white text-base hover:text-magenta-400 transition-colors duration-300 hover:glow-text"
+                className="text-slate-200 text-sm lg:text-[0.95rem] px-2 py-1 rounded-lg hover:text-cyan-200 hover:bg-white/5 transition-all duration-300"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.96 }}
               >
                 {item.name}
-              </a>
+              </motion.a>
             ))}
-            <a
+            <motion.a
               href="/Vibhor_Meshram_Resume.pdf"
               download
-              className="text-sm bg-gradient-to-r from-cyan-600 to-magenta-600 hover:from-cyan-700 hover:to-magenta-700 text-white px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-400/25"
+              className="text-xs md:text-sm bg-gradient-to-r from-cyan-500 to-fuchsia-500 hover:from-cyan-400 hover:to-fuchsia-400 text-slate-950 px-4 py-2 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+              whileHover={{ scale: 1.04, y: -1 }}
+              whileTap={{ scale: 0.96 }}
             >
               Download CV
-            </a>
+            </motion.a>
           </div>
 
           {/* Mobile Navigation Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-cyan-400"
+              className="text-cyan-200 bg-white/5 border border-white/15 rounded-lg p-2"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -56,12 +66,12 @@ export const Navigation = () => {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/90 backdrop-blur-lg rounded-lg mt-2 border border-cyan-400/30">
+            <div className="mx-3 mb-3 px-2 pt-2 pb-3 space-y-1 bg-slate-950/80 backdrop-blur-xl rounded-xl border border-white/15">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-white hover:text-magenta-400 transition-colors duration-300"
+                  className="block px-3 py-2 rounded-lg text-slate-200 hover:text-cyan-200 hover:bg-white/5 transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -70,7 +80,7 @@ export const Navigation = () => {
               <a
                 href="/Vibhor_Meshram_Resume.pdf"
                 download
-                className="block px-3 py-2 text-cyan-400 font-semibold hover:text-magenta-400 transition-colors duration-300"
+                className="block px-3 py-2 text-cyan-200 font-semibold hover:text-fuchsia-200 transition-colors duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 Download CV

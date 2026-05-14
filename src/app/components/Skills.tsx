@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export const Skills = () => {
   const skillCategories = [
     {
@@ -33,35 +35,49 @@ export const Skills = () => {
 
   return (
     <section id="skills" className="py-20 relative">
-      <div className="max-w-370 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.45 }}
+        >
+          <p className="section-kicker mb-3">Tooling</p>
+          <h2 className="section-title mb-5">
             Skills & Technologies
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-magenta-400 mx-auto glow-border"></div>
-        </div>
+          <div className="w-28 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent mx-auto"></div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {skillCategories.map((category) => (
-            <div
+          {skillCategories.map((category, index) => (
+            <motion.div
               key={category.title}
-              className="bg-gradient-to-br from-black/60 to-purple-900/40 p-8 rounded-2xl backdrop-blur-sm border border-cyan-400/50 hover:border-magenta-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/30 glow-border"
+              className="glass-panel holo-border rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              whileHover={{ y: -6 }}
             >
-              <h3 className="text-2xl font-bold text-cyan-400 mb-8 text-center">
+              <h3 className="text-2xl font-bold text-cyan-200 mb-8 text-center">
                 {category.title}
               </h3>
               
               <div className="grid grid-cols-1 gap-4">
                 {category.skills.map((skill) => (
-                  <div 
+                  <motion.div 
                     key={skill.name} 
-                    className={`p-4 rounded-lg bg-gradient-to-r ${skill.color} text-white font-semibold text-center hover:scale-105 transition-transform duration-300 shadow-lg`}
+                    className={`p-4 rounded-xl bg-gradient-to-r ${skill.color} text-white font-semibold text-center hover:scale-[1.02] transition-transform duration-300 shadow-lg shadow-black/20`}
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     {skill.name}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

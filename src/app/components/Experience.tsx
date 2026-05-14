@@ -26,12 +26,13 @@ const experiences = [
 export const Experience = () => {
   return (
     <section id="experience" className="py-20 relative">
-      <div className="max-w-370 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <p className="section-kicker mb-3">Career</p>
+          <h2 className="section-title mb-5">
             Work Experience
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-magenta-400 mx-auto"></div>
+          <div className="w-28 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent mx-auto"></div>
         </div>
 
         <div className="relative">
@@ -51,7 +52,7 @@ export const Experience = () => {
 
                 {/* Card — alternates left/right on desktop */}
                 <div className={`sm:w-[calc(50%-3rem)] ${index % 2 === 0 ? "sm:ml-0 sm:mr-auto" : "sm:ml-auto sm:mr-0"}`}>
-                  <div className="bg-gradient-to-br from-black/50 to-purple-900/30 p-7 rounded-2xl backdrop-blur-sm border border-cyan-400/30 hover:border-magenta-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20">
+                  <div className="glass-panel holo-border p-7 rounded-2xl transition-all duration-300 hover:-translate-y-1">
                     {/* Header */}
                     <div className="mb-4">
                       <h3 className="text-xl font-bold text-white leading-snug">{exp.role}</h3>
@@ -66,7 +67,7 @@ export const Experience = () => {
                     </div>
 
                     {/* Summary */}
-                    <p className="text-gray-300 text-sm leading-relaxed mb-4">{exp.summary}</p>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-4">{exp.summary}</p>
 
                     {/* Key highlights */}
                     {exp.highlights.length > 0 && (
