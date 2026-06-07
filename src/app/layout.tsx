@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Orbitron, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,14 +7,28 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Vibhor Meshram",
-  description: "Portfolio of Vibhor Meshram",
+  title: "Vibhor Meshram // Digital Universe",
+  description:
+    "Vibhor Meshram — Java Full Stack Developer. A futuristic, immersive portfolio across IoT, SaaS, and fintech.",
+  openGraph: {
+    title: "Vibhor Meshram // Digital Universe",
+    description:
+      "Java Full Stack Developer crafting secure microservices, real-time data flows, and cloud-native systems.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -25,15 +39,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Favicon */}
         <link rel="icon" type="image/png" href="/portfolio.png" />
-
-        {/* Optional: Add theme color and Apple icon */}
-        {/* <meta name="theme-color" content="#ffffff" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
+        <meta name="theme-color" content="#03040a" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${orbitron.variable} ${spaceGrotesk.variable} antialiased`}
       >
         {children}
       </body>

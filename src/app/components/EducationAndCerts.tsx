@@ -1,4 +1,7 @@
+"use client";
 import { GraduationCap } from "lucide-react";
+import { motion } from "framer-motion";
+import { SectionHeading } from "@/app/components/ui/SectionHeading";
 
 const education = [
   {
@@ -19,40 +22,40 @@ const education = [
 
 export const EducationAndCerts = () => {
   return (
-    <section id="education" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="section-kicker mb-3">Academics</p>
-          <h2 className="section-title mb-5">
-            Education
-          </h2>
-          <div className="w-28 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent mx-auto"></div>
-        </div>
+    <section id="education" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading kicker="Academics" title="Education" />
 
         <div className="flex justify-center">
           <div className="w-full max-w-2xl space-y-6">
-            {education.map((edu) => (
-              <div
+            {education.map((edu, i) => (
+              <motion.div
                 key={edu.degree}
-                className="glass-panel holo-border p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex items-start gap-5"
+                className="glass-panel holo-border holo-card holo-sweep flex items-start gap-5 rounded-2xl p-6"
+                initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
               >
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/30 to-purple-500/30 flex items-center justify-center border border-cyan-400/40 shrink-0 mt-1">
-                  <GraduationCap className="text-cyan-400" size={20} />
-                </div>
+                <span className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl icon-orb">
+                  <GraduationCap className="text-cyan-300" size={20} />
+                </span>
                 <div>
-                  <h4 className="text-white font-semibold text-lg leading-snug">{edu.degree}</h4>
-                  <p className="text-cyan-400 mt-1">{edu.institution}</p>
-                  <p className="text-gray-400 text-sm">{edu.location}</p>
-                  <div className="flex items-center gap-3 mt-3">
-                    <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500/20 to-magenta-500/20 text-cyan-300 border border-cyan-500/30">
+                  <h4 className="font-display text-lg font-semibold leading-snug text-white">
+                    {edu.degree}
+                  </h4>
+                  <p className="mt-1 text-cyan-300">{edu.institution}</p>
+                  <p className="text-sm text-slate-400">{edu.location}</p>
+                  <div className="mt-3 flex items-center gap-3">
+                    <span className="rounded-full border border-cyan-500/30 bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20 px-3 py-1 text-xs text-cyan-300">
                       {edu.period}
                     </span>
-                    <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-300 border border-purple-500/30">
+                    <span className="rounded-full border border-violet-500/30 bg-gradient-to-r from-violet-500/20 to-cyan-500/20 px-3 py-1 text-xs text-violet-200">
                       {edu.status}
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

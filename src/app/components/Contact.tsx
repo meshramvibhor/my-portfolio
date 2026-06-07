@@ -1,165 +1,121 @@
+"use client";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+import { SectionHeading } from "@/app/components/ui/SectionHeading";
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const isMobile = window.innerWidth <= 768;
-    setIsMobile(isMobile);
+    setIsMobile(window.innerWidth <= 768);
   }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    setFormData({ name: "", email: "", message: "" });
     toast("Thanks for contacting, will get back to you shortly.");
   };
 
+  const contactInfo = [
+    {
+      Icon: Mail,
+      label: "Email",
+      value: isMobile ? "vibhor.meshram.work @gmail.com" : "vibhor.meshram.work@gmail.com",
+      color: "text-cyan-300",
+    },
+    { Icon: Phone, label: "Phone", value: "+91 8308904649", color: "text-fuchsia-300" },
+    { Icon: MapPin, label: "Location", value: "Pune, Maharashtra, India", color: "text-violet-300" },
+  ];
+
+  const fields = [
+    { id: "name", label: "Name", type: "text", placeholder: "Your name" },
+    { id: "email", label: "Email", type: "email", placeholder: "your.email@example.com" },
+  ] as const;
+
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
+    <section id="contact" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading kicker="Connect" title="Let's Work Together" />
+
+        <motion.p
+          className="mx-auto -mt-8 mb-16 max-w-2xl text-center text-lg text-slate-300"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="section-kicker mb-3">Connect</p>
-          <h2 className="section-title mb-5">
-            Let&apos;s Work Together
-          </h2>
-          <div className="w-28 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent mx-auto mb-6"></div>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let&apos;s discuss your next
-            project and create something amazing together.
-          </p>
-        </motion.div>
+          Ready to bring your ideas to life? Let&apos;s discuss your next project and
+          create something amazing together.
+        </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid gap-12 md:grid-cols-2">
           <motion.div
             className="space-y-8"
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.5 }}
           >
-            <motion.div
-              className="glass-panel holo-border p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1"
-              whileHover={{ y: -6 }}
-            >
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Get In Touch
-              </h3>
-
+            <div className="glass-panel holo-border holo-card card-scan rounded-3xl p-8">
+              <span className="scan" aria-hidden />
+              <h3 className="mb-6 font-display text-2xl font-bold text-white">Get In Touch</h3>
               <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-magenta-500/20 rounded-lg flex items-center justify-center border border-cyan-400/30">
-                    <Mail className="text-cyan-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white">
-                      {isMobile?"vibhor.meshram.work @gmail.com":"vibhor.meshram.work@gmail.com"}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-magenta-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-magenta-400/30">
-                    <Phone className="text-magenta-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Phone</p>
-                    <p className="text-white">+91 8308904649</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30">
-                    <MapPin className="text-purple-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Location</p>
-                    <p className="text-white">Pune, Maharashtra, India</p>
-                  </div>
-                </div>
+                {contactInfo.map(({ Icon, label, value, color }) => (
+                  <motion.div
+                    key={label}
+                    className="flex items-center space-x-4 rounded-xl p-2 transition-colors hover:bg-white/5"
+                    whileHover={{ x: 4 }}
+                  >
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl icon-orb">
+                      <Icon className={color} size={20} />
+                    </span>
+                    <div>
+                      <p className="text-sm text-slate-400">{label}</p>
+                      <p className="text-white">{value}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </motion.div>
+            </div>
           </motion.div>
 
           <motion.div
-            className="glass-panel holo-border p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1"
-            initial={{ opacity: 0, x: 20 }}
+            className="glass-panel holo-border holo-card rounded-3xl p-8"
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.45, delay: 0.06 }}
-            whileHover={{ y: -6 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-gray-300 text-sm font-medium mb-2"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-slate-950/40 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-300/50 transition-colors hover:border-cyan-300/40"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
+              {fields.map((f) => (
+                <div key={f.id}>
+                  <label htmlFor={f.id} className="mb-2 block text-sm font-medium text-slate-300">
+                    {f.label}
+                  </label>
+                  <input
+                    type={f.type}
+                    id={f.id}
+                    name={f.id}
+                    value={formData[f.id]}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-white/15 bg-slate-950/40 px-4 py-3 text-white placeholder-slate-500 transition-all duration-300 focus:border-cyan-300/60 focus:outline-none focus:ring-1 focus:ring-cyan-300/40 hover:border-cyan-300/40"
+                    placeholder={f.placeholder}
+                    required
+                  />
+                </div>
+              ))}
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-gray-300 text-sm font-medium mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-slate-950/40 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-300/50 transition-colors hover:border-cyan-300/40"
-                  placeholder="your.email@example.com"
-                  required
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-gray-300 text-sm font-medium mb-2"
-                >
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-300">
                   Message
                 </label>
                 <textarea
@@ -168,15 +124,15 @@ export const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={6}
-                  className="w-full px-4 py-3 bg-slate-950/40 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-300/50 transition-colors resize-none hover:border-cyan-300/40"
+                  className="w-full resize-none rounded-xl border border-white/15 bg-slate-950/40 px-4 py-3 text-white placeholder-slate-500 transition-all duration-300 focus:border-cyan-300/60 focus:outline-none focus:ring-1 focus:ring-cyan-300/40 hover:border-cyan-300/40"
                   placeholder="Tell me about your project..."
                   required
-                ></textarea>
+                />
               </div>
 
               <motion.button
                 type="submit"
-                className="w-full bg-gradient-to-r from-cyan-400 to-fuchsia-400 text-slate-950 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-[1.02] flex items-center justify-center space-x-2"
+                className="btn-neon flex w-full items-center justify-center space-x-2 rounded-xl px-8 py-3.5"
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -187,8 +143,10 @@ export const Contact = () => {
           </motion.div>
         </div>
 
-        <div className="text-center mt-16 pt-8 border-t border-cyan-400/20">
-          <p className="text-gray-400">© 2026 Vibhor Meshram.</p>
+        <div className="mt-16 border-t border-cyan-400/15 pt-8 text-center">
+          <p className="font-display text-sm tracking-wide text-slate-500">
+            © 2026 Vibhor Meshram — Crafted in a digital universe.
+          </p>
         </div>
       </div>
     </section>

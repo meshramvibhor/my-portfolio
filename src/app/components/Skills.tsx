@@ -1,79 +1,92 @@
+"use client";
 import { motion } from "framer-motion";
+import { Layers, Server, Cloud } from "lucide-react";
+import { SectionHeading } from "@/app/components/ui/SectionHeading";
+
+const skillCategories = [
+  {
+    title: "Frontend",
+    Icon: Layers,
+    accent: "from-cyan-400 to-blue-500",
+    dot: "bg-cyan-400 shadow-cyan-400",
+    skills: [
+      "React.js / React Native",
+      "TypeScript / JavaScript",
+      "Redux Toolkit / Context API",
+      "HTML5 / CSS3",
+    ],
+  },
+  {
+    title: "Backend",
+    Icon: Server,
+    accent: "from-fuchsia-500 to-violet-500",
+    dot: "bg-fuchsia-400 shadow-fuchsia-400",
+    skills: [
+      "Java 8+ / Spring Boot",
+      "Spring Security / JWT",
+      "Hibernate / JPA",
+      "Apache Kafka / REST APIs",
+      "Microservices / JUnit",
+    ],
+  },
+  {
+    title: "Cloud & Tools",
+    Icon: Cloud,
+    accent: "from-violet-400 to-cyan-500",
+    dot: "bg-violet-400 shadow-violet-400",
+    skills: [
+      "AWS (ECS, IoT Core, Lambda, EC2)",
+      "Docker / CI/CD / NGINX",
+      "PostgreSQL / MySQL / MongoDB",
+      "Git / Postman / Swagger",
+      "Agile / Scrum / TDD",
+    ],
+  },
+];
 
 export const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Frontend",
-      skills: [
-        { name: "React.js / React Native", color: "from-cyan-400 to-blue-400" },
-        { name: "TypeScript / JavaScript", color: "from-magenta-400 to-purple-400" },
-        { name: "Redux Toolkit / Context API", color: "from-purple-400 to-cyan-400" },
-        { name: "HTML5 / CSS3", color: "from-cyan-500 to-magenta-500" },
-      ]
-    },
-    {
-      title: "Backend",
-      skills: [
-        { name: "Java 8+ / Spring Boot", color: "from-magenta-500 to-purple-500" },
-        { name: "Spring Security / JWT", color: "from-slate-400 to-cyan-400" },
-        { name: "Hibernate / JPA", color: "from-purple-400 to-magenta-400" },
-        { name: "Apache Kafka / REST APIs", color: "from-cyan-600 to-purple-600" },
-        { name: "Microservices / JUnit", color: "from-magenta-600 to-cyan-600" },
-      ]
-    },
-    {
-      title: "Cloud & Tools",
-      skills: [
-        { name: "AWS (ECS, IoT Core, Lambda, EC2)", color: "from-cyan-400 to-purple-600" },
-        { name: "Docker / CI/CD / NGINX", color: "from-magenta-400 to-cyan-400" },
-        { name: "PostgreSQL / MySQL / MongoDB", color: "from-purple-500 to-cyan-500" },
-        { name: "Git / Postman / Swagger", color: "from-cyan-500 to-magenta-500" },
-        { name: "Agile / Scrum / TDD", color: "from-purple-600 to-magenta-600" },
-      ]
-    }
-  ];
-
   return (
-    <section id="skills" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.45 }}
-        >
-          <p className="section-kicker mb-3">Tooling</p>
-          <h2 className="section-title mb-5">
-            Skills & Technologies
-          </h2>
-          <div className="w-28 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent mx-auto"></div>
-        </motion.div>
+    <section id="skills" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading kicker="Tooling" title="Skills & Technologies" />
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-3">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
-              className="glass-panel holo-border rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1"
-              initial={{ opacity: 0, y: 18 }}
+              className="glass-panel holo-border holo-card card-scan rounded-3xl p-8"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              whileHover={{ y: -6 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
             >
-              <h3 className="text-2xl font-bold text-cyan-200 mb-8 text-center">
-                {category.title}
-              </h3>
-              
-              <div className="grid grid-cols-1 gap-4">
-                {category.skills.map((skill) => (
-                  <motion.div 
-                    key={skill.name} 
-                    className={`p-4 rounded-xl bg-gradient-to-r ${skill.color} text-white font-semibold text-center hover:scale-[1.02] transition-transform duration-300 shadow-lg shadow-black/20`}
-                    whileHover={{ scale: 1.03, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
+              <span className="scan" aria-hidden />
+              <div className="mb-8 flex flex-col items-center gap-3">
+                <span
+                  className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${category.accent} shadow-lg shadow-cyan-500/20`}
+                >
+                  <category.Icon className="text-white" size={26} />
+                </span>
+                <h3 className="font-display text-xl font-bold text-cyan-100">
+                  {category.title}
+                </h3>
+              </div>
+
+              <div className="space-y-3">
+                {category.skills.map((skill, i) => (
+                  <motion.div
+                    key={skill}
+                    className="group/skill flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 transition-all duration-300 hover:border-cyan-300/40 hover:bg-white/[0.06]"
+                    initial={{ opacity: 0, x: 16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ duration: 0.4, delay: i * 0.07 }}
+                    whileHover={{ x: 4 }}
                   >
-                    {skill.name}
+                    <span
+                      className={`h-2 w-2 shrink-0 rounded-full ${category.dot} shadow-[0_0_10px] transition-transform duration-300 group-hover/skill:scale-150`}
+                    />
+                    <span className="text-sm font-medium text-slate-200">{skill}</span>
                   </motion.div>
                 ))}
               </div>
